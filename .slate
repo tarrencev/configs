@@ -1,0 +1,64 @@
+# Configuration options
+config defaultToCurrentScreen true
+config modalEscapeKey esc
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+config windowHintsSpreadSearchWidth 200
+config windowHintsSpreadSearchHeight 200
+alias modal-key w,shift,cmd
+
+# Some apps
+alias app-browser 'Google Chrome'
+alias app-editor 'Sublime Text'
+alias app-music 'Spotify'
+alias app-terminal 'iTerm'
+alias app-adium 'Adium'
+
+# Easy helpers for long variable names...
+alias sox screenOriginX
+alias soy screenOriginY
+alias ssx screenSizeX
+alias ssy screenSizeY
+
+# Positioning aliases
+alias full move ${sox};${soy} ${ssx};${ssy}
+alias left-half move ${sox};${soy} ${ssx}/2+1;${ssy}
+alias right-half move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}
+alias top-half move ${sox};${soy} ${ssx};${ssy}/2
+alias bot-half move ${sox};${soy}+${ssy}/2 ${ssx};${ssy}/2
+alias top-left-corner move ${sox};${soy} ${ssx}/2;${ssy}/2
+alias top-right-corner move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}/2
+alias bot-left-corner move ${sox};${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias bot-right-corner move ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+
+# Focus windows in certain directions
+bind left:cmd,shift focus left
+bind right:cmd,shift focus right
+bind up:cmd,shift focus up
+bind down:cmd,shift focus down
+
+# Move windows to certain locations on the screen
+bind /:cmd,ctrl ${full}
+bind left:cmd,ctrl ${left-half}
+bind right:cmd,ctrl ${right-half}
+bind down:cmd,ctrl ${bot-half}
+bind up:cmd,ctrl ${top-half}
+bind left:cmd,ctrl,shift ${top-left-corner}
+bind up:cmd,ctrl,shift ${top-right-corner}
+bind down:cmd,ctrl,shift ${bot-left-corner}
+bind right:cmd,ctrl,shift ${bot-right-corner}
+
+#throws
+bind right:cmd,ctrl,alt throw 1 resize
+bind left:cmd,ctrl,alt throw 0
+
+# Focus helpers
+bind b:e,cmd focus ${app-browser}
+bind e:e,cmd focus ${app-editor}
+bind m:e,cmd focus ${app-music}
+bind t:e,cmd focus ${app-terminal}
+bind a:e,cmd focus ${app-adium}
+bind /:e,cmd hint 1234567890QWERTYUIOPASDFGHJKL

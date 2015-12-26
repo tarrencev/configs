@@ -1,0 +1,10 @@
+[
+	{
+		"keys": ["super+shift+r"],
+		"command": "swi_debug"
+	},
+	{ "keys": ["ctrl+alt+up"], "command": "swap_line_up" },
+	{ "keys": ["ctrl+alt+down"], "command": "swap_line_down" },
+
+]
+
